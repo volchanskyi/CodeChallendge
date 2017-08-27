@@ -3,45 +3,37 @@ package core;
 import java.util.Scanner;
 
 public class AvgPositiveNegative {
+    public static void main(String a[]) throws Exception {
+	Scanner scan = new Scanner(System.in);
+	System.out.println("Enter an amount of numbers: ");
+	int amount = scan.nextInt();
+	int[] arr = new int[amount];
 
-    public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
-	System.out.print("Enter an amount of numbers:  ");
-	int amount = sc.nextInt();
-	
-	int[] array = new int[amount];
+	double avg_pos = 0.0, avg_neg = 0.0;
 
-	for (int i = 0; i < array.length; i++) {
-	    System.out.println("Enter a number: ");
-	    array[i] = sc.nextInt();
+	for (int i = 0; i < amount; i++) {
+	    System.out.print("Enter Number [" + i + "]:");
+	    arr[i] = scan.nextInt();
 
-	}
-	sc.close();
-	Double pos = new Double(0);
-	Double neg = new Double(0);
-	double posCount = 0;
-	double negCount = 0;
-	for (int j = 0; j < array.length; j++) {
-	    if (array[j] > 0) {
-		posCount++;
-		pos += array[j];
-	    } else {
-		negCount++;
-		neg += array[j];
+	} scan.close();
+
+	// Write your logic here
+	int pos_count = 0, neg_count = 0, positive = 0, negative = 0;
+
+	for (int number : arr) {
+	    if (number > 0) {
+		positive += number;
+		pos_count++;
+	    } else if (number < 0) {
+		negative += number;
+		neg_count++;
 	    }
 	}
-	if (pos.isNaN() || pos == 0.0) {
-	    System.out.println("No positive numbers were put, go ahead and check on negative");
-	} else {
-	    System.out.println("Average of positive numbers: " + (pos / posCount));
-	}
+	avg_pos = (double) positive / pos_count;
+	avg_neg = (double) negative / neg_count;
 
-	if (neg.isNaN() || neg == 0.0) {
-	    System.out.println("No negative numbers were put. You have only positive ones");
-	} else {
-	    System.out.println("Average of negative numbers: " + (neg / negCount));
-	}
-
+	// end
+	System.out.println("\npositivenumbers:\n" + avg_pos);
+	System.out.println("negativenumbers:\n" + avg_neg);
     }
-
 }
