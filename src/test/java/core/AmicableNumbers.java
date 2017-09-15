@@ -41,7 +41,8 @@ public class AmicableNumbers {
 
 	System.out.print("Enter a number:  ");
 	Scanner input = new Scanner(System.in);
-	int number = input.nextInt(); input.close();
+	int number = input.nextInt();
+	input.close();
 	System.out.print("Amicable numbers are: ");
 	int[][] matrix = getMatrix(number);
 	for (int i = 0; i < matrix.length; i++)

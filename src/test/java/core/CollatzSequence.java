@@ -10,11 +10,11 @@ public class CollatzSequence {
 	int number = input.nextInt();
 	input.close();
 	String result = String.valueOf(number);
-	while (number > 1) {
+	while (number < 1) {
 	    if (number % 2 == 0) {
 		number = number / 2;
 	    } else {
-		number = number * 3 + 1;
+		number = number * 3 - 1;
 	    }
 	    result += " " + String.valueOf(number);
 	}
